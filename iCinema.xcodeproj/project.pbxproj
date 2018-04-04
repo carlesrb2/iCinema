@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A30B1DB82073D216004B8DA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30B1DB72073D216004B8DA0 /* AppDelegate.swift */; };
-		A30B1DBA2073D216004B8DA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30B1DB92073D216004B8DA0 /* ViewController.swift */; };
 		A30B1DBD2073D217004B8DA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30B1DBB2073D217004B8DA0 /* Main.storyboard */; };
 		A30B1DBF2073D217004B8DA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A30B1DBE2073D217004B8DA0 /* Assets.xcassets */; };
 		A30B1DC22073D217004B8DA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30B1DC02073D217004B8DA0 /* LaunchScreen.storyboard */; };
 		A30B1DCD2073D217004B8DA0 /* iCinemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30B1DCC2073D217004B8DA0 /* iCinemaTests.swift */; };
 		A30B1DD82073D217004B8DA0 /* iCinemaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30B1DD72073D217004B8DA0 /* iCinemaUITests.swift */; };
+		BB3002D32075388A00F6CA48 /* TbController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3002D22075388A00F6CA48 /* TbController.swift */; };
+		BB3002D520753D3100F6CA48 /* SeriesTbController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3002D420753D3100F6CA48 /* SeriesTbController.swift */; };
+		BB3002D7207542B600F6CA48 /* PeliculasTbController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3002D6207542B600F6CA48 /* PeliculasTbController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		A30B1DB42073D216004B8DA0 /* iCinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCinema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30B1DB72073D216004B8DA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A30B1DB92073D216004B8DA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A30B1DBC2073D217004B8DA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A30B1DBE2073D217004B8DA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A30B1DC12073D217004B8DA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,12 @@
 		A30B1DD32073D217004B8DA0 /* iCinemaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCinemaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30B1DD72073D217004B8DA0 /* iCinemaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCinemaUITests.swift; sourceTree = "<group>"; };
 		A30B1DD92073D217004B8DA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB3002D1207535EB00F6CA48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		BB3002D22075388A00F6CA48 /* TbController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TbController.swift; sourceTree = "<group>"; };
+		BB3002D420753D3100F6CA48 /* SeriesTbController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTbController.swift; sourceTree = "<group>"; };
+		BB3002D6207542B600F6CA48 /* PeliculasTbController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeliculasTbController.swift; sourceTree = "<group>"; };
+		BB3002D8207543D800F6CA48 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		BB3002D9207543D800F6CA48 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				A30B1DB72073D216004B8DA0 /* AppDelegate.swift */,
-				A30B1DB92073D216004B8DA0 /* ViewController.swift */,
 				A30B1DBB2073D217004B8DA0 /* Main.storyboard */,
+				BB3002D420753D3100F6CA48 /* SeriesTbController.swift */,
+				BB3002D6207542B600F6CA48 /* PeliculasTbController.swift */,
+				BB3002D22075388A00F6CA48 /* TbController.swift */,
 				A30B1DBE2073D217004B8DA0 /* Assets.xcassets */,
 				A30B1DC02073D217004B8DA0 /* LaunchScreen.storyboard */,
 				A30B1DC32073D217004B8DA0 /* Info.plist */,
@@ -188,7 +197,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ls31360;
 				TargetAttributes = {
 					A30B1DB32073D216004B8DA0 = {
@@ -259,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A30B1DBA2073D216004B8DA0 /* ViewController.swift in Sources */,
+				BB3002D520753D3100F6CA48 /* SeriesTbController.swift in Sources */,
+				BB3002D32075388A00F6CA48 /* TbController.swift in Sources */,
+				BB3002D7207542B600F6CA48 /* PeliculasTbController.swift in Sources */,
 				A30B1DB82073D216004B8DA0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +311,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A30B1DBC2073D217004B8DA0 /* Base */,
+				BB3002D1207535EB00F6CA48 /* en */,
+				BB3002D8207543D800F6CA48 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -308,6 +321,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A30B1DC12073D217004B8DA0 /* Base */,
+				BB3002D9207543D800F6CA48 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -319,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -329,6 +344,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -336,6 +352,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -376,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -386,6 +404,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -393,6 +412,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
