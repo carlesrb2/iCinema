@@ -8,31 +8,48 @@
 
 import UIKit
 
-class PeliculasTbController: UITableViewController {
-
+struct Pelicula{
+    var id = ""
+    var tipo = 0
+    var titulo = ""
+    var director = ""
+    var genero = ""
+    var estreno = 0
+    var temporadas = 0
+}
+class PeliculasTbController: UITableViewController {    
+    var tableArray = [Pelicula] ()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        parseJSON()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         self.setNavigationBar()
     }
     
+    func addTapped(){
+        print()
+    }
     func setNavigationBar() {
         let screenSize: CGRect = UIScreen.main.bounds
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 60))
         let navItem = UINavigationItem(title: "Peliculas")
-        let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: nil, action: #selector(done))
-        navItem.rightBarButtonItem = doneItem
+        navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addP))
+
+       
+
+        
         navBar.setItems([navItem], animated: false)
         self.view.addSubview(navBar)
     }
     
-    @objc func done() { // remove @objc for Swift 3
-        
+    @objc func addP() { // remove @objc for Swift 3
+        print("iepo")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,23 +60,24 @@ class PeliculasTbController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.tableArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        
+        let p = self.tableArray[indexPath.row]
+        cell.textLabel?.text = p.titulo + " - " + p.genero + " | " + String(p.estreno)
+        print(self.tableArray[indexPath.row].titulo)
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -105,5 +123,49 @@ class PeliculasTbController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func parseJSON() {
+        let url = URL(string: "http://45.76.138.67/getPeliculas.php?tipo=1&direccion=1&order=0")
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            
+            guard error == nil else {
+                print("returning error")
+                return
+            }
+            
+            guard let content = data else {
+                print("not returning data")
+                return
+            }
+            
+            
+            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [[String: Any]] else {
+                print("Not containing JSON")
+                return
+            }
+            
+            //if let array = json[0] as? [String:String] {
+              //  self.tableArray = array["titulo"]
+            //}
+            
+            print(json)
+            for element in json{
+                var p = Pelicula()
+                p.titulo = element["titulo"] as! String
+                p.director = element["director"] as! String
+                p.genero = element["genero"] as! String
+                p.id = element["id"] as! String
+                
+                self.tableArray.append(p)
+            }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
 }
