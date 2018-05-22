@@ -19,29 +19,32 @@ struct Pelicula{
 }
 class PeliculasTbController: UITableViewController {    
     var tableArray = [Pelicula] ()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        parseJSON()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        //self.parseJSON()
         
         self.setNavigationBar()
     }
     
-    func addTapped(){
-        print()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableArray = [Pelicula] ()
+
+        self.parseJSON()
+        
     }
+    
     func setNavigationBar() {
         let screenSize: CGRect = UIScreen.main.bounds
         let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 60))
         let navItem = UINavigationItem(title: "Peliculas")
         navItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addP))
 
-       
+        navItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(goSort))
+
 
         
         navBar.setItems([navItem], animated: false)
@@ -50,7 +53,20 @@ class PeliculasTbController: UITableViewController {
     
     @objc func addP() { // remove @objc for Swift 3
         print("iepo")
+        
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "editController") as! editViewController
+        self.present(next, animated: true, completion: nil)
     }
+    
+    
+    @objc func goSort() { // remove @objc for Swift 3
+        print("sort")
+        
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "sortViewController") as! SortViewController
+        self.present(next, animated: true, completion: nil)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,6 +94,13 @@ class PeliculasTbController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("section: \(indexPath.section)")
+        print("row: \(indexPath.row)")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.elementoId = String(tableArray[indexPath.row].id)
+    }
 
     /*
     // Override to support conditional editing of the table view.

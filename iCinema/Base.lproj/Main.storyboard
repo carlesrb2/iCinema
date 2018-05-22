@@ -51,6 +51,115 @@
             </objects>
             <point key="canvasLocation" x="-303.19999999999999" y="-586.05697151424295"/>
         </scene>
+        <!--Sort View Controller-->
+        <scene sceneID="PhB-Do-ZBJ">
+            <objects>
+                <viewController storyboardIdentifier="sortViewController" id="LH2-l7-fG7" customClass="SortViewController" customModule="iCinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRz-7P-AgB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peO-z4-6gi">
+                                <rect key="frame" x="16" y="71" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Nombre (ASC)"/>
+                                <connections>
+                                    <action selector="btnNombreAscClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="utA-SH-5GF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYa-8j-OoB">
+                                <rect key="frame" x="16" y="147" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Año (ASC)"/>
+                                <connections>
+                                    <action selector="btnAnyAscClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="irG-us-MZ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5W-ps-r27">
+                                <rect key="frame" x="16" y="185" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Año (DESC)"/>
+                                <connections>
+                                    <action selector="btnAnyDescClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="08L-by-uOh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJy-nI-km1">
+                                <rect key="frame" x="16" y="223" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Genero (ASC)"/>
+                                <connections>
+                                    <action selector="btnGeneroAscClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="smE-xM-f5f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35N-Mi-vR9">
+                                <rect key="frame" x="16" y="261" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Genero (DESC)"/>
+                                <connections>
+                                    <action selector="btnGeneroDescClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="zm9-8X-6Nh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ah-6J-1Qu">
+                                <rect key="frame" x="16" y="109" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Nombre (DESC)"/>
+                                <connections>
+                                    <action selector="btnNombreDescClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="d99-6I-RK2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GIX-wZ-VYI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxS-aR-Nh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="-1238.2308845577213"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="sMK-Z5-rz0">
+            <objects>
+                <viewController storyboardIdentifier="editController" id="os4-1P-LHc" customClass="editViewController" customModule="iCinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="658-Ta-RE7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titulo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MK4-Lg-mp7">
+                                <rect key="frame" x="16" y="60" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Director" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T2P-vb-udD">
+                                <rect key="frame" x="16" y="98" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-lj-zKn">
+                                <rect key="frame" x="16" y="136" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="btnCLICK:" destination="os4-1P-LHc" eventType="touchUpInside" id="frw-Cl-WAU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lXY-yy-IbQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn" destination="EdS-lj-zKn" id="yBT-cz-3DL"/>
+                        <outlet property="txtDirector" destination="T2P-vb-udD" id="Cpv-NI-1Wz"/>
+                        <outlet property="txtTitulo" destination="MK4-Lg-mp7" id="n8H-ge-sjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eU1-Id-ltZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="-567.16641679160421"/>
+        </scene>
         <!--Tb Controller-->
         <scene sceneID="edY-z9-Xth">
             <objects>

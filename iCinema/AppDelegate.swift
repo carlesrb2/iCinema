@@ -11,6 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    var elementoId = "0"
+    var sortType = "0"
+
     var window: UIWindow?
 
 
