@@ -11,8 +11,42 @@ import UIKit
 class editViewController: UIViewController {
     @IBOutlet weak var txtTitulo: UITextField!
     
+    @IBAction func eliminarClick(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        let url = URL(string: "http://45.76.138.67/deleteElemento.php?id=" + appDelegate.elementoId)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            print("Delete OK")
+            
+        }
+        task.resume()
+        
+        
+        self.dismiss(animated: true)
+    }
     @IBOutlet weak var txtDirector: UITextField!
     @IBAction func btnCLICK(_ sender: UIButton) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        var p = Pelicula();
+        p.id = appDelegate.elementoId
+        p.tipo = appDelegate.elementoTipo
+        p.director = "test"
+        p.estreno = "2000"
+        p.temporadas = "0"
+        p.genero = "teest"
+        
+        let url = URL(string: "http://45.76.138.67/updateElemento.php?id=" + p.id + "&tipo=" + p.tipo + "&director=" + p.director + "&estreno=" + p.estreno + "&temporadas=" + p.temporadas + "&genero=" + p.genero)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            print("Update OK")
+            
+        }
+        task.resume()
+        
+
         self.dismiss(animated: true)
 
     }

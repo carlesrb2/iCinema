@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="-303.19999999999999" y="-586.05697151424295"/>
         </scene>
-        <!--Sort View Controller-->
+        <!--Ordenar-->
         <scene sceneID="PhB-Do-ZBJ">
             <objects>
-                <viewController storyboardIdentifier="sortViewController" id="LH2-l7-fG7" customClass="SortViewController" customModule="iCinema" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sortViewController" title="Ordenar" id="LH2-l7-fG7" customClass="SortViewController" customModule="iCinema" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRz-7P-AgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +144,17 @@
                                 <state key="normal" title="Guardar"/>
                                 <connections>
                                     <action selector="btnCLICK:" destination="os4-1P-LHc" eventType="touchUpInside" id="frw-Cl-WAU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-Mh-qBC">
+                                <rect key="frame" x="16" y="174" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <state key="normal" title="Eliminar">
+                                    <color key="titleColor" red="1" green="0.10439151023890902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="eliminarClick:" destination="os4-1P-LHc" eventType="touchUpInside" id="QrQ-H5-ibS"/>
                                 </connections>
                             </button>
                         </subviews>

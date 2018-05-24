@@ -10,21 +10,20 @@ import UIKit
 
 struct Pelicula{
     var id = ""
-    var tipo = 0
+    var tipo = ""
     var titulo = ""
     var director = ""
     var genero = ""
-    var estreno = 0
-    var temporadas = 0
+    var estreno = ""
+    var temporadas = ""
 }
 class PeliculasTbController: UITableViewController {    
     var tableArray = [Pelicula] ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //self.parseJSON()
         
+        // Creamos el nav
         self.setNavigationBar()
     }
     
@@ -33,7 +32,8 @@ class PeliculasTbController: UITableViewController {
         
         tableArray = [Pelicula] ()
 
-        self.parseJSON()
+        // Recuperamos JSON con las peliculas y cargamos el tableV
+        self.peliculasFromUrl()
         
     }
     
@@ -52,7 +52,10 @@ class PeliculasTbController: UITableViewController {
     }
     
     @objc func addP() { // remove @objc for Swift 3
-        print("iepo")
+        print("add")
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.elementoId = "0"
         
         let next = self.storyboard?.instantiateViewController(withIdentifier: "editController") as! editViewController
         self.present(next, animated: true, completion: nil)
@@ -88,65 +91,28 @@ class PeliculasTbController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         
-        let p = self.tableArray[indexPath.row]
-        cell.textLabel?.text = p.titulo + " - " + p.genero + " | " + String(p.estreno)
-        print(self.tableArray[indexPath.row].titulo)
-        return cell
+        if(indexPath.row == 0){
+            return cell
+        }
+        else{
+            let p = self.tableArray[indexPath.row - 1]
+            cell.textLabel?.text = p.titulo + " - " + p.genero + " | " + String(p.estreno)
+            print(self.tableArray[indexPath.row].titulo)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("section: \(indexPath.section)")
-        print("row: \(indexPath.row)")
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.elementoId = String(tableArray[indexPath.row].id)
+        appDelegate.elementoId = String(tableArray[indexPath.row - 1].id)
+        
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "editController") as! editViewController
+        self.present(next, animated: true, completion: nil)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func parseJSON() {
+    
+    func peliculasFromUrl() {
         let url = URL(string: "http://45.76.138.67/getPeliculas.php?tipo=1&direccion=1&order=0")
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
@@ -178,9 +144,14 @@ class PeliculasTbController: UITableViewController {
                 p.director = element["director"] as! String
                 p.genero = element["genero"] as! String
                 p.id = element["id"] as! String
+                p.estreno = element["estreno"] as! String
                 
                 self.tableArray.append(p)
             }
+             let p = Pelicula()
+            
+            // Hack rapido para solucionar primera fila oculta bajo el nav
+            self.tableArray.append(p)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
