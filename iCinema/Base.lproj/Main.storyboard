@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R13-kp-RhQ">
-                                <rect key="frame" x="156" y="594" width="63" height="30"/>
+                                <rect key="frame" x="158" y="594" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Favoritos"/>
                                 <connections>
@@ -129,7 +129,13 @@
                         <viewLayoutGuide key="safeArea" id="GIX-wZ-VYI"/>
                     </view>
                     <connections>
+                        <outlet property="btnAnyoA" destination="VYa-8j-OoB" id="Vgo-gI-Sn4"/>
+                        <outlet property="btnAnyoD" destination="K5W-ps-r27" id="OXQ-VP-0b8"/>
                         <outlet property="btnFav" destination="R13-kp-RhQ" id="Wb0-5p-teT"/>
+                        <outlet property="btnGeneroA" destination="jJy-nI-km1" id="Zdf-sw-mye"/>
+                        <outlet property="btnGeneroD" destination="35N-Mi-vR9" id="qfM-FE-xTR"/>
+                        <outlet property="btnNombreA" destination="peO-z4-6gi" id="c5W-wx-zdm"/>
+                        <outlet property="btnNombreD" destination="8ah-6J-1Qu" id="VOr-ub-2B5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxS-aR-Nh1" userLabel="First Responder" sceneMemberID="firstResponder"/>

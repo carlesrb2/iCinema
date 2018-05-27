@@ -4,3 +4,23 @@
 
 /* Class = "UITabBarItem"; title = "Series"; ObjectID = "f0W-an-KCc"; */
 "f0W-an-KCc.title" = "Series";
+"nombreA" = "Nombre (ASC)";
+"nombreD" = "Nombre (DESC)";
+
+"anoA" = "Año (ASC)";
+"anoD" = "Año (DESC)";
+
+"generoA" = "Genero (ASC)";
+"generoD" = "Genero (DESC)";
+
+"favoritos" = "Favoritos";
+
+"guardar" = "Guardar";
+"eliminar" = "Eliminar";
+
+"director" = "Director";
+"titulo" = "Titulo";
+"genero" = "Genero";
+"estreno" = "Estreno";
+"temporadas" = "temporadas";
+

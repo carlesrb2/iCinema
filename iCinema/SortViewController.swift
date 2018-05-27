@@ -10,11 +10,18 @@ import UIKit
 
 class SortViewController: UIViewController {
 
+    @IBOutlet weak var btnGeneroD: UIButton!
+    @IBOutlet weak var btnNombreA: UIButton!
+    @IBOutlet weak var btnAnyoA: UIButton!
+    @IBOutlet weak var btnNombreD: UIButton!
+    @IBOutlet weak var btnAnyoD: UIButton!
+    @IBOutlet weak var btnGeneroA: UIButton!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         if(appDelegate.favFilter == "favorito"){
             self.btnFav.tintColor = UIColor.blue
         }
