@@ -14,12 +14,21 @@
         <scene sceneID="1Eq-tB-uGn">
             <objects>
                 <viewController id="Hq8-F1-rLP" customClass="SeriesTbController" customModule="iCinema" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tub-A9-crg" customClass="UITableView">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rml-iI-D0k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="dj1-ne-ylk"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="eJt-9U-6nZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJt-9U-6nZ" id="oYO-8U-UCb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <tabBarItem key="tabBarItem" title="Series" id="f0W-an-KCc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2o-V5-POC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCS-a6-OEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-303.19999999999999" y="-586.05697151424295"/>
+            <point key="canvasLocation" x="-303" y="-618"/>
         </scene>
         <!--Ordenar-->
         <scene sceneID="PhB-Do-ZBJ">
@@ -107,10 +116,21 @@
                                     <action selector="btnNombreDescClick:" destination="LH2-l7-fG7" eventType="touchUpInside" id="d99-6I-RK2"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R13-kp-RhQ">
+                                <rect key="frame" x="156" y="594" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Favoritos"/>
+                                <connections>
+                                    <action selector="setFav:" destination="LH2-l7-fG7" eventType="touchUpInside" id="QZy-8g-XSe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GIX-wZ-VYI"/>
                     </view>
+                    <connections>
+                        <outlet property="btnFav" destination="R13-kp-RhQ" id="Wb0-5p-teT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxS-aR-Nh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +159,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-lj-zKn">
-                                <rect key="frame" x="16" y="136" width="343" height="30"/>
+                                <rect key="frame" x="16" y="220" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Guardar"/>
                                 <connections>
@@ -147,7 +167,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-Mh-qBC">
-                                <rect key="frame" x="16" y="174" width="343" height="30"/>
+                                <rect key="frame" x="16" y="258" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <state key="normal" title="Eliminar">
@@ -157,13 +177,47 @@
                                     <action selector="eliminarClick:" destination="os4-1P-LHc" eventType="touchUpInside" id="QrQ-H5-ibS"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Genero" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-Yi-dSo">
+                                <rect key="frame" x="16" y="136" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Estreno" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gz3-Uh-AEd">
+                                <rect key="frame" x="16" y="174" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noC-v0-Ksq">
+                                <rect key="frame" x="160" y="593" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.1043915102" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Favorito"/>
+                                <connections>
+                                    <action selector="setFav:" destination="os4-1P-LHc" eventType="touchUpInside" id="SN5-hB-Hd8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Temporadas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P59-lJ-kjw">
+                                <rect key="frame" x="16" y="98" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lXY-yy-IbQ"/>
                     </view>
                     <connections>
                         <outlet property="btn" destination="EdS-lj-zKn" id="yBT-cz-3DL"/>
+                        <outlet property="btnFav" destination="noC-v0-Ksq" id="mtu-Vw-UmZ"/>
                         <outlet property="txtDirector" destination="T2P-vb-udD" id="Cpv-NI-1Wz"/>
+                        <outlet property="txtEstrenoTemp" destination="Gz3-Uh-AEd" id="B0X-03-UkH"/>
+                        <outlet property="txtGenero" destination="LHG-Yi-dSo" id="e0b-Wk-FVd"/>
+                        <outlet property="txtTemporadas" destination="P59-lJ-kjw" id="DF6-fh-6Yx"/>
                         <outlet property="txtTitulo" destination="MK4-Lg-mp7" id="n8H-ge-sjg"/>
                     </connections>
                 </viewController>

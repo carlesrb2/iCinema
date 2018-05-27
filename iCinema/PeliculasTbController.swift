@@ -16,6 +16,8 @@ struct Pelicula{
     var genero = ""
     var estreno = ""
     var temporadas = ""
+    var favorito = ""
+
 }
 class PeliculasTbController: UITableViewController {    
     var tableArray = [Pelicula] ()
@@ -25,11 +27,13 @@ class PeliculasTbController: UITableViewController {
         
         // Creamos el nav
         self.setNavigationBar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.elementoTipo = "1"
         tableArray = [Pelicula] ()
 
         // Recuperamos JSON con las peliculas y cargamos el tableV
@@ -113,7 +117,10 @@ class PeliculasTbController: UITableViewController {
 
     
     func peliculasFromUrl() {
-        let url = URL(string: "http://45.76.138.67/getPeliculas.php?tipo=1&direccion=1&order=0")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        print("http://45.76.138.67/getPeliculas.php?tipo=1&direccion=" + appDelegate.sortDir + "&order=" + appDelegate.sortType + "&favorito=" + appDelegate.favFilter)
+        let url = URL(string: "http://45.76.138.67/getPeliculas.php?tipo=1&direccion=" + appDelegate.sortDir + "&order=" + appDelegate.sortType + "&favorito=" + appDelegate.favFilter)
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
@@ -130,6 +137,9 @@ class PeliculasTbController: UITableViewController {
             
             guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [[String: Any]] else {
                 print("Not containing JSON")
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 return
             }
             

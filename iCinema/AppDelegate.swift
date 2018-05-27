@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var elementoId = "0"
     var sortType = "0"
+    var sortDir = "1"
     var elementoTipo = "1"
+    var favFilter = "favorito"
 
     var window: UIWindow?
 

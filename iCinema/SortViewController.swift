@@ -15,36 +15,65 @@ class SortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if(appDelegate.favFilter == "favorito"){
+            self.btnFav.tintColor = UIColor.blue
+        }
+        else{
+            self.btnFav.tintColor = UIColor.red
+        }
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var btnFav: UIButton!
+    @IBAction func setFav(_ sender: Any) {
+        if(appDelegate.favFilter == "favorito"){
+            appDelegate.favFilter = "1"
+        }
+        else{
+            appDelegate.favFilter = "favorito"
+        }
+        self.dismiss(animated: true)
+
+    }
     @IBAction func btnAnyAscClick(_ sender: Any) {
-        appDelegate.sortType = "3"
+        appDelegate.sortType = "2"
+        appDelegate.sortDir = "1"
+
         self.dismiss(animated: true)
 
     }
     @IBAction func btnNombreDescClick(_ sender: Any) {
-        appDelegate.sortType = "2"
+        appDelegate.sortType = "1"
+        appDelegate.sortDir = "0"
+
         self.dismiss(animated: true)
 
     }
     @IBAction func btnNombreAscClick(_ sender: Any) {
         appDelegate.sortType = "1"
+        appDelegate.sortDir = "1"
+
         self.dismiss(animated: true)
 
     }
     @IBAction func btnAnyDescClick(_ sender: Any) {
-        appDelegate.sortType = "4"
+        appDelegate.sortType = "2"
+        appDelegate.sortDir = "0"
+
         self.dismiss(animated: true)
 
     }
     @IBAction func btnGeneroDescClick(_ sender: Any) {
-        appDelegate.sortType = "6"
+        appDelegate.sortType = "3"
+        appDelegate.sortDir = "0"
+
         self.dismiss(animated: true)
 
     }
     @IBAction func btnGeneroAscClick(_ sender: Any) {
-        appDelegate.sortType = "5"
+        appDelegate.sortType = "3"
+        appDelegate.sortDir = "1"
+
         self.dismiss(animated: true)
 
     }
@@ -53,16 +82,4 @@ class SortViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
